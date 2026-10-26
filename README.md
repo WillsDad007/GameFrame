@@ -1,3 +1,6 @@
+# yes yes
+yes yes yes
+
 ## Introduction
 
 This is a clean instance of GameFrame, ready to start our project.
