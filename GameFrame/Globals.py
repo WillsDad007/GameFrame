@@ -34,7 +34,7 @@ class Globals:
     window_name = 'GF Game'
 
     # - Set the order of the rooms - #
-    levels = ["WelcomeScreen", "Maze", "ScrollingShooter", "BreakOut"]
+    levels = ["WelcomeScreen", "Tutorial", "GamePlay"]
 
     # - Set the starting level - #
     start_level = 0
