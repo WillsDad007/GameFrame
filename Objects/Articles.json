@@ -1,0 +1,29 @@
+[
+    {
+        "title": "title",
+        "author": "author",
+        "date": "date",
+        "source": "source",
+        "text": "text",
+        "is_fake": false,
+        "explanation": "explanation"
+    },
+    {
+        "title": "title",
+        "author": "author",
+        "date": "date",
+        "source": "source",
+        "text": "text",
+        "is_fake": true,
+        "explanation": "explanation"
+    },
+    {
+        "title": "title",
+        "author": "author",
+        "date": "date",
+        "source": "source",
+        "text": "text",
+        "is_fake": true,
+        "explanation": "explanation"
+    }
+]

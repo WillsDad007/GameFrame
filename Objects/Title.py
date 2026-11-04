@@ -1,6 +1,9 @@
 from GameFrame import RoomObject
 import pygame
 from GameFrame import Globals
+import json
+from Objects.Articles import Article
+
 
 class Title(RoomObject):
     """
@@ -15,6 +18,8 @@ class Title(RoomObject):
 
         # register key events
         self.handle_key_events = True
+        
+        self.load_articles()
 
     def key_pressed(self, key):
         """
@@ -26,3 +31,21 @@ class Title(RoomObject):
         elif key[pygame.K_t]:
             self.room.running = False
             Globals.next_level = 1
+
+    def load_articles(self):
+
+        with open("Objects/Articles.json", "r") as file:
+            data = json.load(file)
+
+        for article_data in data:
+            article = Article(
+            article_data["title"],
+            article_data["author"],
+            article_data["date"],
+            article_data["source"],
+            article_data["text"],
+            article_data["is_fake"],
+            article_data["explanation"]
+            )
+            Globals.articles.append(article)
+
