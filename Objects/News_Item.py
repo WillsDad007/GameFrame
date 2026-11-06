@@ -1,6 +1,7 @@
 from GameFrame import TextObject, Globals, RoomObject
 import pygame
 import random
+from Objects import Articles
 
 class News_Item(RoomObject): 
     def __init__(self, room, x, y):
@@ -14,8 +15,8 @@ class News_Item(RoomObject):
         print(item.title)
 
 class Article_Title(TextObject): 
-    def __init__(self, room, x, y, 
-            text='title', 
+    def __init__(self, room, x, y,
+            text="", 
             size=50,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
@@ -24,7 +25,7 @@ class Article_Title(TextObject):
 
 class Article_Author(TextObject): 
     def __init__(self, room, x, y, 
-            text='author', 
+            text="", 
             size=20,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
@@ -33,7 +34,7 @@ class Article_Author(TextObject):
 
 class Article_Date(TextObject): 
     def __init__(self, room, x, y, 
-            text='date', 
+            text="", 
             size=20,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
@@ -42,7 +43,7 @@ class Article_Date(TextObject):
 
 class Article_Source(TextObject): 
     def __init__(self, room, x, y, 
-            text='source', 
+            text="",
             size=20,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
@@ -51,7 +52,7 @@ class Article_Source(TextObject):
 
 class Article_Text(TextObject): 
     def __init__(self, room, x, y, 
-            text='text', 
+            text="", 
             size=20,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
@@ -60,7 +61,7 @@ class Article_Text(TextObject):
 
 class Article_Explanation(TextObject): 
     def __init__(self, room, x, y, 
-            text='explain', 
+            text="",
             size=30,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
