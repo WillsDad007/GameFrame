@@ -1,6 +1,10 @@
-from GameFrame import Level, Globals
+from GameFrame import Level, Globals, TextObject
 import random
-from Objects.News_Item import News_Item, Article_Title, Article_Author, Article_Date, Article_Source, Article_Text
+from Objects.News_Item import News_Item, Article_Title, Article_Author, Article_Date, Article_Source, Article_Text, Progress, Score
+import pygame
+import time
+from Objects.News_Item import Score
+from Objects.Notification import Notification
 
 class GamePlay(Level):
     def __init__(self, screen, joysticks):
@@ -9,23 +13,113 @@ class GamePlay(Level):
         # set background image
         self.set_background_image("news_background.png")
 
+        # add score
+        self.score = Score(self,
+                           915, 115,
+                           str(Globals.SCORE))
+        self.add_room_object(self.score)
+
+        # add room object progress
+        self.progress_object = Progress(self, 355, 650)
+        self.add_room_object(self.progress_object)
+
         self.articles = Globals.articles.copy()
         random.shuffle(self.articles)
         self.article_index = 0
         self.article = self.articles[self.article_index]
 
-        # add roomobject title, author, date, source, text
-        self.add_room_object(Article_Title(self, 30, 100, text=self.article.title))
-        self.add_room_object(Article_Author(self, 915, 413))
-        self.add_room_object(Article_Date(self, 915, 493))
-        self.add_room_object(Article_Source(self, 915, 573))
-        self.add_room_object(Article_Text(self, 30, 170))
+        # answer for real/fake and correct or not
+        self.answer_submitted = False
 
-        self.article_index += 1
-        if self.article_index < len(self.articles):
-            self.article = self.articles[self.article_index]
+        # add notification text
+        self.notification_object = Notification(
+            self, 915, 170
+        )
+        self.add_room_object(self.notification_object)
+
+
+        # add roomobject title, author, date, source, text
+        self.title_object = Article_Title(
+            self, 30, 100, text=self.article.title
+        )
+
+        self.author_object = Article_Author(
+            self, 915, 413, text=self.article.author
+           )
+
+        self.date_object = Article_Date(
+            self, 915, 493, text=self.article.date
+           )
+        
+        self.source_object = Article_Source(
+            self, 915, 573, text=self.article.source
+            )
+
+        self.text_object = Article_Text(
+            self, 30, 170, text=self.article.text
+           )
+        
+        self.add_room_object(self.title_object)
+        self.add_room_object(self.author_object)
+        self.add_room_object(self.date_object)
+        self.add_room_object(self.source_object)
+        self.add_room_object(self.text_object)
+        self.add_room_object(News_Item(self, 30, 170))
+        
+
+    def switch_article(self):
+        print("entered switch")
+        if self.answer_submitted == True:
+            self.article_index += 1
+            self.progress_object.text = f"Progress: {self.article_index + 1}/9"
+            self.progress_object.update_text()
+            if self.article_index < len(self.articles):
+                self.article = self.articles[self.article_index]
+            else:
+                # end of game, make it switch to new list later
+                pass
         else:
-            # end of game, make it switch to new list later
             pass
 
-        
+    def show_notification(self):
+        if self.player_answer == self.article.is_fake:
+            self.notification_object.text = ("Correct!\n"
+            f"{self.article.explanation}")
+        elif self.player_answer != self.article.is_fake:
+            self.notification_object.text = ("Incorect :(\n"
+            f"{self.article.explanation}")
+        self.notification_object.update_text()
+        self.answer_submitted = False
+        self.player_answer = None
+
+        # set new background
+        if self.article_index == 1:
+            self.set_background_image("news_background2.png")
+        elif self.article_index == 2:
+            self.set_background_image("news_background3.png")
+        elif self.article_index == 3:
+            self.set_background_image("news_background4.png")
+        elif self.article_index == 4:
+            self.set_background_image("news_background5.png")
+        elif self.article_index == 5:
+            self.set_background_image("news_background6.png")
+        elif self.article_index == 6:
+            self.set_background_image("news_background7.png")
+        elif self.article_index == 7:
+            self.set_background_image("news_background8.png")
+        elif self.article_index == 8:
+            self.set_background_image("news_background9.png")
+
+        # update article
+        self.title_object.text = self.article.title
+        self.author_object.text = self.article.author
+        self.date_object.text = self.article.date
+        self.source_object.text = self.article.source
+        self.text_object.text = self.article.text
+
+        self.title_object.update_text()
+        self.author_object.update_text()
+        self.date_object.update_text()
+        self.source_object.update_text()
+        self.text_object.update_text()
+        time.sleep(1)

@@ -1,29 +1,29 @@
 [
     {
         "title": "title1",
-        "author": "author",
-        "date": "date",
-        "source": "source",
-        "text": "text",
+        "author": "author1",
+        "date": "date1",
+        "source": "source1",
+        "text": "text1",
         "is_fake": false,
-        "explanation": "explanation"
+        "explanation": "explanation1"
     },
     {
         "title": "title2",
-        "author": "author",
-        "date": "date",
-        "source": "source",
-        "text": "text",
+        "author": "author2",
+        "date": "date2",
+        "source": "source2",
+        "text": "text2",
         "is_fake": true,
-        "explanation": "explanation"
+        "explanation": "explanation2"
     },
     {
-        "title": "title",
-        "author": "author",
-        "date": "date",
-        "source": "source",
-        "text": "text",
+        "title": "title3",
+        "author": "author3",
+        "date": "date3",
+        "source": "source3",
+        "text": "text3",
         "is_fake": true,
-        "explanation": "explanation"
+        "explanation": "explanation3"
     }
 ]
