@@ -30,6 +30,7 @@ class GamePlay(Level):
 
         # answer for real/fake and correct or not
         self.answer_submitted = False
+        self.player_answer = None
 
         # add notification text
         self.notification_object = Notification(
@@ -75,6 +76,10 @@ class GamePlay(Level):
             self.progress_object.update_text()
             if self.article_index < len(self.articles):
                 self.article = self.articles[self.article_index]
+                self.notification_object.text = ""
+                self.notification_object.update_text()
+                self.answer_submitted = False
+                self.player_answer = None
             else:
                 # end of game, make it switch to new list later
                 pass

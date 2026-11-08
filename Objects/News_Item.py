@@ -22,13 +22,17 @@ class News_Item(RoomObject):
         if self.room.answer_submitted:
             if key[pygame.K_SPACE]:
                 self.room.switch_article()
-                #self.
+                
 
         elif key[pygame.K_f]:
             player_answer = True
+            self.room.answer_submitted = True
+            self.room.show_notification()
 
         elif key[pygame.K_r]:
             player_answer = False
+            self.room.answer_submitted = True
+            self.room.show_notification()
 
         else:
             return
@@ -40,10 +44,7 @@ class News_Item(RoomObject):
         else:
             print("incorrect")
             self.room.score.update_score(-5)
-        self.room.answer_submitted = True
         self.room.player_answer = player_answer
-        self.room.show_notification()
-        #self.room.switch_article()
 
 class Article_Title(TextObject): 
     def __init__(self, room, x, y,
