@@ -19,11 +19,12 @@ class GamePlay(Level):
         self.good_sound = self.load_sound("good.ogg")
         self.bad_sound = self.load_sound("bad.ogg")
         self.click_sound = self.load_sound("click3.ogg")
+        self.congrats_sound = self.load_sound("roblox-congrats.mp3")
 
         # add score
         self.score = Score(self,
                            915, 115,
-                           str(Globals.SCORE))
+                           f"Score: {str(Globals.SCORE)}")
         self.add_room_object(self.score)
 
         # add room object progress
@@ -48,7 +49,7 @@ class GamePlay(Level):
 
         # add roomobject title, author, date, source, text
         self.title_object = Article_Title(
-            self, 30, 100, text=self.article.title
+            self, 30, 110, text=self.article.title
         )
 
         self.author_object = Article_Author(
@@ -118,7 +119,6 @@ class GamePlay(Level):
                 self.date_object.update_text()
                 self.source_object.update_text()
                 self.text_object.update_text()
-                time.sleep(1)
 
                 # clear notification
                 self.notification_object.text = ""
@@ -128,8 +128,10 @@ class GamePlay(Level):
                 self.answer_submitted = False
                 self.player_answer = None
             else:
-                # end of game, make it switch to new list later
-                pass
+                self.congrats_sound.play()
+                time.sleep(2)
+                Globals.exiting = True
+                quit()
         else:
             pass
 

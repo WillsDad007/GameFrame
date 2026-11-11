@@ -4,51 +4,60 @@ import pygame
 tutorial_text_1 = (
     "WELCOME, FACT CHECKER!\n"
     "\n"
-    "Your mission: Stop misinformation from spreading!\n"
-    "You'll investigate news articles and decide\n"
-    "whether each one is FAKE or LEGIT.\n"
+    "You've just joined the newsroom!\n"
+    "Your boss has a problem: misinformation is\n"
+    "spreading, and the public needs your help.\n"
+    "Your mission is to investigate 18 articles\n"
+    "and decide which are FAKE or LEGIT.\n"
     "\n"
     "HOW TO SPOT FAKE NEWS:\n"
     "\n"
     "1. CHECK THE SOURCE\n"
-    "Is the website trustworthy? Look for strange\n"
-    "URLs, unfamiliar publishers or fake logos.\n"
-    "Remember: A professional look proves nothing!\n"
+    "Is the publisher trustworthy? Look for\n"
+    "unfamiliar sources or suspicious details.\n"
+    "A professional appearance proves nothing!\n"
     "\n"
     "2. QUESTION THE HEADLINE\n"
     "Does it sound shocking or too good to be true?\n"
-    "Clickbait uses dramatic words to grab attention.\n"
-    "Don't judge an article by its headline alone!\n"
+    "Clickbait uses dramatic words for attention.\n"
+    "But strange claims can still be real!\n"
     "\n"
     "3. INVESTIGATE THE EVIDENCE\n"
-    "Are there facts, reliable sources or expert\n"
-    "quotes? Can other trusted websites confirm it?\n"
-    "Big claims need strong evidence!\n"
+    "Are experts, studies or statistics provided?\n"
+    "Can other reliable sources confirm the story?\n"
+    "Big claims need strong evidence!"
 )
 
+
 tutorial_text_2 = (
-     "4. CHECK THE DETAILS\n"
-        "Look at the author, publication date and images.\n"
-        "Old stories can be shared as if they're new.\n"
-        "Real images can also be used out of context!\n"
-        "\n"
-        "HOW TO PLAY:\n"
-        "\n"
-        "Read each article carefully and investigate\n"
-        "the clues before making your decision.\n"
-        "Choose FAKE if the information is misleading,\n"
-        "or LEGIT if the claims are supported by facts.\n"
-        "Earn points for correct answers and learn\n"
-        "from the explanation after each decision.\n"
-        "\n"
-        "FINAL TIP:\n"
-        "If you're unsure, don't guess or share it.\n"
-        "Pause, investigate and verify the facts!\n"
-        "\n"
-        "READY TO BECOME A MISINFORMATION DETECTIVE?"
-        "\n"
-        "Press SPACE to start game."
+    "4. CHECK THE DETAILS\n"
+    "Look at the author and publication date.\n"
+    "Old stories can be shared as if they're new.\n"
+    "AI can also create convincing fake content!\n"
+    "\n"
+    "HOW TO PLAY:\n"
+    "\n"
+    "Read each article and investigate the clues.\n"
+    "Press F if you believe the article is FAKE.\n"
+    "Press R if you believe the article is REAL.\n"
+    "\n"
+    "Correct answers earn points, while incorrect\n"
+    "answers reduce your score.\n"
+    "Check the grey notification box after answering\n"
+    "to discover whether you were correct and why.\n"
+    "Press SPACE to move to the next article.\n"
+    "\n"
+    "FINAL TIP:\n"
+    "Don't trust everything you read, even if it\n"
+    "looks professional. Investigate and verify!\n"
+    "\n"
+    "Your boss is counting on you to stop fake news.\n"
+    "Don't let the newsroom down!\n"
+    "\n"
+    "READY TO START FACT-CHECKING?\n"
+    "Press SPACE to begin!"
 )
+
 
 
 class Tutorial_Title(TextObject): 
@@ -69,7 +78,7 @@ class Tutorial_Title(TextObject):
 class Tutorial_Text_1(TextObject): 
     def __init__(self, room, x, y, 
                  text=tutorial_text_1, 
-                 size=20,
+                 size=17,
                  font='Comic Sans MS', 
                  colour=(255, 255, 255), 
                  bold=False): 
@@ -78,7 +87,7 @@ class Tutorial_Text_1(TextObject):
 class Tutorial_Text_2(TextObject): 
     def __init__(self, room, x, y, 
                  text=tutorial_text_2, 
-                 size=20,
+                 size=17,
                  font='Comic Sans MS', 
                  colour=(255, 255, 255), 
                  bold=False): 

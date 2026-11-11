@@ -27,11 +27,13 @@ class News_Item(RoomObject):
                 
         elif key[pygame.K_f]:
             player_answer = True
+            self.room.player_answer = player_answer
             self.room.answer_submitted = True
             self.room.show_notification()
 
         elif key[pygame.K_r]:
             player_answer = False
+            self.room.player_answer = player_answer
             self.room.answer_submitted = True
             self.room.show_notification()
 
@@ -45,12 +47,11 @@ class News_Item(RoomObject):
         else:
             print("incorrect")
             self.room.score.update_score(-5)
-        self.room.player_answer = player_answer
 
 class Article_Title(TextObject): 
     def __init__(self, room, x, y,
             text="", 
-            size=50,
+            size=40,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
             bold=False): 
@@ -123,5 +124,5 @@ class Score(TextObject):
 
     def update_score(self, change):
         Globals.SCORE += change
-        self.text = str(Globals.SCORE)
+        self.text = f"Score: {str(Globals.SCORE)}"
         self.update_text()

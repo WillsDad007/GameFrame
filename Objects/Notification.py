@@ -3,7 +3,7 @@ import pygame
 
 class Notification(TextObject):
     def __init__(self, room, x, y,
-        text="Placeholder text", 
+        text="", 
         size=20,
         font='Comic Sans MS', 
         colour=(0, 0, 0), 
