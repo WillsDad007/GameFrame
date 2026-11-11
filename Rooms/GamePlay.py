@@ -10,8 +10,15 @@ class GamePlay(Level):
     def __init__(self, screen, joysticks):
         Level.__init__(self, screen, joysticks)
 
-        # set background image
+        # set background image and sounds
         self.set_background_image("news_background.png")
+
+        self.background_music = self.load_sound("Italian_Mom.ogg")
+        self.background_music.set_volume(0.5)
+        self.background_music.play(loops=-1)
+        self.good_sound = self.load_sound("good.ogg")
+        self.bad_sound = self.load_sound("bad.ogg")
+        self.click_sound = self.load_sound("click3.ogg")
 
         # add score
         self.score = Score(self,
@@ -69,15 +76,55 @@ class GamePlay(Level):
         
 
     def switch_article(self):
-        print("entered switch")
         if self.answer_submitted == True:
             self.article_index += 1
-            self.progress_object.text = f"Progress: {self.article_index + 1}/9"
-            self.progress_object.update_text()
+
             if self.article_index < len(self.articles):
                 self.article = self.articles[self.article_index]
+
+                # progress update
+                self.progress_object.text = f"Progress: {self.article_index + 1}/18"
+                self.progress_object.update_text()
+
+                # set new background
+                if self.article_index == 9:
+                    self.set_background_image("news_background.png")
+                elif self.article_index == 1 or self.article_index == 10:
+                    self.set_background_image("news_background2.png")
+                elif self.article_index == 2 or self.article_index == 11:
+                    self.set_background_image("news_background3.png")
+                elif self.article_index == 3 or self.article_index == 12:
+                    self.set_background_image("news_background4.png")
+                elif self.article_index == 4 or self.article_index == 13:
+                    self.set_background_image("news_background5.png")
+                elif self.article_index == 5 or self.article_index == 14:
+                    self.set_background_image("news_background6.png")
+                elif self.article_index == 6 or self.article_index == 15:
+                    self.set_background_image("news_background7.png")
+                elif self.article_index == 7 or self.article_index == 16:
+                    self.set_background_image("news_background8.png")
+                elif self.article_index == 8 or self.article_index == 17:
+                    self.set_background_image("news_background9.png")
+
+                # update article
+                self.title_object.text = self.article.title
+                self.author_object.text = self.article.author
+                self.date_object.text = self.article.date
+                self.source_object.text = self.article.source
+                self.text_object.text = self.article.text
+        
+                self.title_object.update_text()
+                self.author_object.update_text()
+                self.date_object.update_text()
+                self.source_object.update_text()
+                self.text_object.update_text()
+                time.sleep(1)
+
+                # clear notification
                 self.notification_object.text = ""
                 self.notification_object.update_text()
+
+                # reset answer state
                 self.answer_submitted = False
                 self.player_answer = None
             else:
@@ -90,41 +137,12 @@ class GamePlay(Level):
         if self.player_answer == self.article.is_fake:
             self.notification_object.text = ("Correct!\n"
             f"{self.article.explanation}")
+            self.good_sound.play()
         elif self.player_answer != self.article.is_fake:
             self.notification_object.text = ("Incorect :(\n"
             f"{self.article.explanation}")
+            self.bad_sound.play()
         self.notification_object.update_text()
-        self.answer_submitted = False
-        self.player_answer = None
 
-        # set new background
-        if self.article_index == 1:
-            self.set_background_image("news_background2.png")
-        elif self.article_index == 2:
-            self.set_background_image("news_background3.png")
-        elif self.article_index == 3:
-            self.set_background_image("news_background4.png")
-        elif self.article_index == 4:
-            self.set_background_image("news_background5.png")
-        elif self.article_index == 5:
-            self.set_background_image("news_background6.png")
-        elif self.article_index == 6:
-            self.set_background_image("news_background7.png")
-        elif self.article_index == 7:
-            self.set_background_image("news_background8.png")
-        elif self.article_index == 8:
-            self.set_background_image("news_background9.png")
 
-        # update article
-        self.title_object.text = self.article.title
-        self.author_object.text = self.article.author
-        self.date_object.text = self.article.date
-        self.source_object.text = self.article.source
-        self.text_object.text = self.article.text
-
-        self.title_object.update_text()
-        self.author_object.update_text()
-        self.date_object.update_text()
-        self.source_object.update_text()
-        self.text_object.update_text()
-        time.sleep(1)
+        

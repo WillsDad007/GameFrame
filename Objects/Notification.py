@@ -9,5 +9,3 @@ class Notification(TextObject):
         colour=(0, 0, 0), 
         bold=False): 
         TextObject.__init__(self, room, x, y, text, size, font, colour, bold)
-        # control when popup appears, manage message displayed, handle interactions
-        #1004, 200

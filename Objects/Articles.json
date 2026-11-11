@@ -5,7 +5,7 @@
         "date": "date1",
         "source": "source1",
         "text": "text1",
-        "is_fake": false,
+        "is_fake": true,
         "explanation": "explanation1"
     },
     {
@@ -25,5 +25,140 @@
         "text": "text3",
         "is_fake": true,
         "explanation": "explanation3"
+    },
+    {
+        "title": "title4",
+        "author": "author4",
+        "date": "date4",
+        "source": "source4",
+        "text": "text4",
+        "is_fake": false,
+        "explanation": "explanation4"
+    },
+    {
+        "title": "title5",
+        "author": "author5",
+        "date": "date5",
+        "source": "source5",
+        "text": "text5",
+        "is_fake": true,
+        "explanation": "explanation5"
+    },
+    {
+        "title": "title6",
+        "author": "author6",
+        "date": "date6",
+        "source": "source6",
+        "text": "text6",
+        "is_fake": true,
+        "explanation": "explanation6"
+    },
+    {
+        "title": "title7",
+        "author": "author7",
+        "date": "date7",
+        "source": "source7",
+        "text": "text7",
+        "is_fake": false,
+        "explanation": "explanation7"
+    },
+    {
+        "title": "title8",
+        "author": "author8",
+        "date": "date8",
+        "source": "source8",
+        "text": "text8",
+        "is_fake": false,
+        "explanation": "explanation8"
+    },
+    {
+        "title": "title9",
+        "author": "author9",
+        "date": "date9",
+        "source": "source9",
+        "text": "text9",
+        "is_fake": true,
+        "explanation": "explanation9"
+    },
+    {
+        "title": "title10",
+        "author": "author10",
+        "date": "date10",
+        "source": "source10",
+        "text": "text10",
+        "is_fake": false,
+        "explanation": "explanation10"
+    },
+    {
+        "title": "title11",
+        "author": "author11",
+        "date": "date11",
+        "source": "source11",
+        "text": "text11",
+        "is_fake": true,
+        "explanation": "explanation11"
+    },
+    {
+        "title": "title12",
+        "author": "author12",
+        "date": "date12",
+        "source": "source12",
+        "text": "text12",
+        "is_fake": false,
+        "explanation": "explanation12"
+    },
+    {
+        "title": "title13",
+        "author": "author13",
+        "date": "date13",
+        "source": "source13",
+        "text": "text13",
+        "is_fake": false,
+        "explanation": "explanation13"
+    },
+    {
+        "title": "title14",
+        "author": "author14",
+        "date": "date14",
+        "source": "source14",
+        "text": "text14",
+        "is_fake": true,
+        "explanation": "explanation14"
+    },
+    {
+        "title": "title15",
+        "author": "author15",
+        "date": "date15",
+        "source": "source15",
+        "text": "text15",
+        "is_fake": true,
+        "explanation": "explanation15"
+    },
+    {
+        "title": "title16",
+        "author": "author16",
+        "date": "date16",
+        "source": "source16",
+        "text": "text16",
+        "is_fake": false,
+        "explanation": "explanation16"
+    },
+    {
+        "title": "title17",
+        "author": "author17",
+        "date": "date17",
+        "source": "source17",
+        "text": "text17",
+        "is_fake": true,
+        "explanation": "explanation17"
+    },
+    {
+        "title": "title18",
+        "author": "author18",
+        "date": "date18",
+        "source": "source18",
+        "text": "text18",
+        "is_fake": false,
+        "explanation": "explanation18"
     }
 ]

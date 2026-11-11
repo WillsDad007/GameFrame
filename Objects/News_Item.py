@@ -22,8 +22,9 @@ class News_Item(RoomObject):
         if self.room.answer_submitted:
             if key[pygame.K_SPACE]:
                 self.room.switch_article()
+                self.room.click_sound.play()
+            return
                 
-
         elif key[pygame.K_f]:
             player_answer = True
             self.room.answer_submitted = True
@@ -102,7 +103,7 @@ class Article_Explanation(TextObject):
 
 class Progress(TextObject): 
     def __init__(self, room, x, y, 
-            text="Progress: 1/9",
+            text="Progress: 1/18",
             size=20,
             font='Comic Sans MS', 
             colour=(0, 0, 0), 
