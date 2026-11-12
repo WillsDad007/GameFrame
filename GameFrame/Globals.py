@@ -31,7 +31,7 @@ class Globals:
     LIVES = 3
 
     # - Set the Window display name - #
-    window_name = 'GF Game'
+    window_name = 'News Reviews'
 
     # - Set the order of the rooms - #
     levels = ["WelcomeScreen", "Tutorial", "GamePlay"]
